@@ -270,6 +270,14 @@
         }
     }
 
+    .hand-pointer {
+        display: block;          /* permite centrar */
+        margin: 10px auto;       /* centro horizontal */
+        font-size: 1.8rem;
+        text-align: center;
+        line-height: 1;
+    }
+
     /* =====================================================
     FELIZ AÑO NUEVO — ESTILOS AISLADOS
     Se activan SOLO cuando el body tiene id="felizAnioNuevo"
