@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -100,4 +101,108 @@
     </script>
 
     </body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>💫 Para NachitoMyLove 💫</title>
+        <link rel="stylesheet" href="styles.css" >
+    </head>
+    <body>
+
+    <div class="galaxy"></div>
+
+    <div class="container">
+        <div class="main-text">
+            Hola Negrito,<br>Presioná Acá Cuando Sea Año Nuevo
+        </div>
+        
+        <a href="felizAnioNuevo.html" class="button">
+            <span>
+                <img 
+                    class="heart-image"
+                    src="https://static.vecteezy.com/system/resources/previews/021/664/908/non_2x/gold-star-shotting-gold-star-transparent-gold-bokeh-stars-free-free-png.png"
+                    alt="corazón"
+                >
+                PRESIONÁ ACÁ 
+                
+                <img 
+                    class="heart-image"
+                    src="https://static.vecteezy.com/system/resources/previews/021/664/908/non_2x/gold-star-shotting-gold-star-transparent-gold-bokeh-stars-free-free-png.png"
+                    alt="corazón"
+                >
+                
+                <br>( SOLO EN AÑO NUEVO, NO SEAS ANSIOSO )
+                
+            </span>
+        </a>
+    
+        <div class="handwriting">
+            <img 
+                class="heart-image"
+                src="https://images.vexels.com/media/users/3/252014/isolated/preview/43b5d3ce744c56be2ad4fe0a969777bb-trazo-de-color-de-corazon-humano-rosa.png"
+                alt="corazón"
+            >
+            Te Amo
+            <img 
+                class="heart-image"
+                src="https://images.vexels.com/media/users/3/252014/isolated/preview/43b5d3ce744c56be2ad4fe0a969777bb-trazo-de-color-de-corazon-humano-rosa.png"
+                alt="corazón"
+            >
+        </div>
+    </div>
+
+    <script>
+    // Crear estrellas
+    function createStars() {
+        for (let i = 0; i < 200; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 3 + 's';
+        star.style.animationDuration = (2 + Math.random() * 3) + 's';
+        document.body.appendChild(star);
+        }
+    }
+
+    // Crear partículas flotantes
+    function createParticles() {
+        setInterval(() => {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.setProperty('--drift', (Math.random() * 200 - 100) + 'px');
+        particle.style.animationDuration = (8 + Math.random() * 8) + 's';
+        document.body.appendChild(particle);
+        
+        setTimeout(() => particle.remove(), 16000);
+        }, 300);
+    }
+
+    // Crear corazones flotantes
+    function createHearts() {
+        setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.fontSize = (15 + Math.random() * 20) + 'px';
+        heart.style.animationDelay = Math.random() * 2 + 's';
+        document.body.appendChild(heart);
+        
+        setTimeout(() => heart.remove(), 8000);
+        }, 2000);
+    }
+
+    // Inicializar
+    createStars();
+    createParticles();
+    createHearts();
+    </script>
+
+    </body>
+>>>>>>> 0fea8cc09899a8fda55678880764204888ce97e8
 </html>
