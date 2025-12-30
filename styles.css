@@ -344,31 +344,47 @@
 
     #felizAnioNuevo .firework {
         position: fixed;
-        width: 4px;
-        height: 4px;
-        background: transparent;
+        width: 6px;
+        height: 6px;
         border-radius: 50%;
         pointer-events: none;
         z-index: 5;
-        animation: explode 2s ease-out forwards;
+
+        background: radial-gradient(circle, #fff, transparent 70%);
+        animation: explode 1.8s ease-out forwards;
     }
+
 
     @keyframes explode {
         0% {
-            box-shadow: 0 0 #fff;
+            transform: scale(0.2);
             opacity: 1;
+            box-shadow: 0 0 #fff;
         }
         100% {
-            box-shadow:
-                0 -80px #ff69b4,
-                60px -40px #ffd700,
-                60px 40px #00eaff,
-                0 80px #ff4500,
-                -60px 40px #adff2f,
-                -60px -40px #ff69b4;
+            transform: scale(1);
             opacity: 0;
+            box-shadow:
+                0 -120px #ff69b4,
+                85px -85px #ffd700,
+                120px 0 #00eaff,
+                85px 85px #adff2f,
+                0 120px #ff4500,
+                -85px 85px #ff69b4,
+                -120px 0 #00eaff,
+                -85px -85px #ffd700,
+
+                40px -140px #fff,
+                140px -40px #ffa500,
+                140px 40px #00ffff,
+                40px 140px #ff1493,
+                -40px 140px #7fff00,
+                -140px 40px #ff69b4,
+                -140px -40px #00eaff,
+                -40px -140px #ffd700;
         }
     }
+
 
     /* Imagen */
     #felizAnioNuevo .heart-img {
@@ -381,3 +397,96 @@
         animation: heartFloat 4s ease-in-out infinite;
     }
     
+    /* ================= FOTO RECUERDO ================= */
+
+    #felizAnioNuevo .photo-frame {
+        margin: 35px auto 0;
+        width: 220px;
+        aspect-ratio: 3 / 4; /* perfecto para foto vertical */
+
+        padding: 12px;
+        border-radius: 26px;
+
+        background: linear-gradient(
+            135deg,
+            rgba(255, 120, 200, 0.6),
+            rgba(120, 180, 255, 0.6)
+        );
+
+        box-shadow:
+            0 0 30px rgba(255, 120, 200, 0.6),
+            0 0 60px rgba(120, 180, 255, 0.4);
+
+        transform: rotate(-2deg);
+        animation: photoFloat 6s ease-in-out infinite;
+
+        backdrop-filter: blur(6px);
+    }
+
+    #felizAnioNuevo .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        border-radius: 18px;
+        display: block;
+
+        box-shadow:
+            inset 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    /* Animación suave tipo recuerdo */
+    @keyframes photoFloat {
+        0%, 100% {
+            transform: rotate(-2deg) translateY(0);
+        }
+        50% {
+            transform: rotate(2deg) translateY(-8px);
+        }
+    }
+
+
+    /* =========================
+    BOTÓN SONIDO
+    ========================= */
+    .sound-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
+
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+
+        background: linear-gradient(
+            135deg,
+            rgba(120, 0, 255, 0.5),
+            rgba(255, 0, 150, 0.5)
+        );
+
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+
+        box-shadow:
+            0 0 20px rgba(150, 100, 255, 0.6),
+            inset 0 0 10px rgba(255, 255, 255, 0.15);
+
+        backdrop-filter: blur(6px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .sound-btn:hover {
+        transform: scale(1.1);
+        box-shadow:
+            0 0 35px rgba(255, 100, 255, 0.9),
+            inset 0 0 15px rgba(255, 255, 255, 0.25);
+    }
+
+    .sound-btn.active {
+        box-shadow:
+            0 0 45px rgba(255, 150, 255, 1),
+            0 0 80px rgba(255, 0, 150, 0.8);
+    }

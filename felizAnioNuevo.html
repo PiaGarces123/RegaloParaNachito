@@ -9,7 +9,10 @@
         </head>
 
     <body id="felizAnioNuevo">
-
+        <audio id="fire-sound" src="fuegos.mp3" preload="auto"></audio>
+        <button id="soundToggle" class="sound-btn" aria-label="Activar sonido">
+            🔊
+        </button>
         <div class="banner">
             <h1>
                 
@@ -25,24 +28,77 @@
                     src="https://images.vexels.com/media/users/3/252014/isolated/preview/43b5d3ce744c56be2ad4fe0a969777bb-trazo-de-color-de-corazon-humano-rosa.png"
                     alt="corazón"
                 >
+
             </h1>
-        <p>Gracias Por Ser Mi Compañero De Vida</p>
-        <p>Te Amo</p>
+            <p>Gracias Por Ser Mi Compañero De Vida</p>
+            <p>Te Amo</p>
+
+            <!-- FOTO 
+            <div class="photo-frame">
+                <img 
+                    src="nosotros.jpg"
+                    alt="Nosotros"
+                >
+            </div>-->
+
         </div>
 
         <script>
-        function createFirework() {
-        const fw = document.createElement('div');
-        fw.className = 'firework';
-        fw.style.left = Math.random() * 100 + 'vw';
-        fw.style.top = Math.random() * 80 + 'vh';
-        document.body.appendChild(fw);
+            /* =========================
+            FUEGOS ARTIFICIALES
+            ========================= */
+            function createFirework() {
+                const fw = document.createElement('div');
+                fw.className = 'firework';
 
-        setTimeout(() => fw.remove(), 2000);
-        }
+                const size = Math.random() * 6 + 4;
+                const duration = Math.random() * 0.8 + 1.4;
 
-        setInterval(createFirework, 500);
+                fw.style.left = Math.random() * 100 + 'vw';
+                fw.style.top = Math.random() * 80 + 'vh';
+                fw.style.width = size + 'px';
+                fw.style.height = size + 'px';
+                fw.style.animationDuration = duration + 's';
+
+                document.body.appendChild(fw);
+                setTimeout(() => fw.remove(), duration * 1000);
+            }
+
+            setInterval(createFirework, 400);
+
+            /* =========================
+            SONIDO FUEGOS
+            ========================= */
+            const fireSound = document.getElementById('fire-sound');
+            const soundBtn = document.getElementById('soundToggle');
+
+            let soundOn = false;
+
+            soundBtn.addEventListener('click', () => {
+                if (!soundOn) {
+                    fireSound.currentTime = 0;
+                    fireSound.volume = 0.6;
+                    fireSound.loop = true;
+
+                    fireSound.play().then(() => {
+                        soundBtn.textContent = '🔇';
+                        soundBtn.classList.add('active');
+                        soundOn = true;
+                    }).catch(err => {
+                        console.log('No se pudo reproducir:', err);
+                    });
+
+                } else {
+                    fireSound.pause();
+                    soundBtn.textContent = '🔊';
+                    soundBtn.classList.remove('active');
+                    soundOn = false;
+                }
+            });
+
         </script>
+
+
 
     </body>
 </html>
