@@ -33,13 +33,50 @@
             <p>Gracias Por Ser Mi Compañero De Vida</p>
             <p>Te Amo</p>
 
-            <!-- FOTO 
-            <div class="photo-frame">
-                <img 
-                    src="nosotros.jpg"
-                    alt="Nosotros"
-                >
-            </div>-->
+           <!-- CARRUSEL DE RECUERDOS -->
+            <div class="carousel">
+                <button class="carousel-btn prev">‹</button>
+
+                <div class="carousel-track">
+
+                    <img src="fotos/1.jpeg" alt="Nosotros 1">
+                    <img src="fotos/2.jpeg" alt="Nosotros 2">
+                    <img src="fotos/3.jpeg" alt="Nosotros 3">                    
+                    <img src="fotos/4.jpeg" alt="Nosotros 4">
+                    <img src="fotos/5.jpeg" alt="Nosotros 5">
+                    <img src="fotos/6.jpeg" alt="Nosotros 6">
+                    <img src="fotos/7.jpeg" alt="Nosotros 7">
+                    <img src="fotos/8.jpeg" alt="Nosotros 8">
+                    <img src="fotos/9.jpeg" alt="Nosotros 9">                    
+                    <img src="fotos/10.jpeg" alt="Nosotros 10">
+                    <img src="fotos/11.jpeg" alt="Nosotros 11">
+                    <img src="fotos/12.jpeg" alt="Nosotros 12">
+                    <img src="fotos/13.jpeg" alt="Nosotros 13">
+                    <img src="fotos/14.jpeg" alt="Nosotros 14">
+                    <img src="fotos/15.jpeg" alt="Nosotros 15">                    
+                    <img src="fotos/16.jpeg" alt="Nosotros 16">
+                    <img src="fotos/17.jpeg" alt="Nosotros 17">
+                    <img src="fotos/18.jpeg" alt="Nosotros 18">
+                    <img src="fotos/19.jpeg" alt="Nosotros 19">
+                    <img src="fotos/20.jpeg" alt="Nosotros 20">
+                    <img src="fotos/21.jpeg" alt="Nosotros 21">                    
+                    <img src="fotos/22.jpeg" alt="Nosotros 22">
+                    <img src="fotos/23.jpeg" alt="Nosotros 23">
+                    <img src="fotos/24.jpeg" alt="Nosotros 24">
+                    <img src="fotos/25.jpeg" alt="Nosotros 25">
+                    <img src="fotos/26.jpeg" alt="Nosotros 26">
+                    <img src="fotos/27.jpeg" alt="Nosotros 27">                    
+                    <img src="fotos/28.jpeg" alt="Nosotros 28">
+                    <img src="fotos/29.jpeg" alt="Nosotros 29">
+                    <img src="fotos/30.jpeg" alt="Nosotros 30">
+                    <img src="fotos/31.jpeg" alt="Nosotros 31">
+                    <img src="fotos/32.jpeg" alt="Nosotros 32">
+
+                </div>
+
+                <button class="carousel-btn next">›</button>
+            </div>
+
 
         </div>
 
@@ -94,6 +131,42 @@
                     soundBtn.classList.remove('active');
                     soundOn = false;
                 }
+            });
+
+            const track = document.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const nextBtn = document.querySelector('.carousel-btn.next');
+            const prevBtn = document.querySelector('.carousel-btn.prev');
+
+            let index = 0;
+
+            function updateCarousel() {
+                track.style.transform = `translateX(-${index * 100}%)`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                index = (index + 1) % slides.length;
+                updateCarousel();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                index = (index - 1 + slides.length) % slides.length;
+                updateCarousel();
+            });
+
+            /* Swipe táctil */
+            let startX = 0;
+
+            track.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+            });
+
+            track.addEventListener('touchend', e => {
+                const endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+
+                if (diff > 50) nextBtn.click();
+                if (diff < -50) prevBtn.click();
             });
 
         </script>
